@@ -1,0 +1,244 @@
+/* =========================
+   CSS Variables
+========================= */
+:root {
+  --bg: #f8f9fb;
+  --surface: #ffffff;
+  --text-primary: #21242c;
+  --text-secondary: #626b7a;
+  --accent: #3f78ff;
+  --accent-hover: #2f64e2;
+  --border: #e8ebf1;
+  --shadow: 0 10px 30px rgba(26, 35, 58, 0.06);
+  --radius: 16px;
+  --container-width: 1120px;
+}
+
+/* =========================
+   Base Reset
+========================= */
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text-primary);
+  line-height: 1.5;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.container {
+  width: min(100% - 2rem, var(--container-width));
+  margin-inline: auto;
+}
+
+.section-title {
+  margin: 0;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  letter-spacing: -0.02em;
+}
+
+/* =========================
+   Hero
+========================= */
+.hero {
+  padding: clamp(4rem, 8vw, 7rem) 0;
+}
+
+.hero__content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+  max-width: 740px;
+}
+
+.hero__eyebrow {
+  margin: 0;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.hero h1 {
+  margin: 0;
+  font-size: clamp(2rem, 6vw, 3.4rem);
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+}
+
+.hero__subtitle {
+  margin: 0;
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  color: var(--text-secondary);
+}
+
+.button {
+  margin-top: 0.75rem;
+  padding: 0.8rem 1.35rem;
+  background: var(--accent);
+  color: #fff;
+  border-radius: 999px;
+  font-weight: 600;
+  transition: background 0.25s ease, transform 0.25s ease;
+}
+
+.button:hover {
+  background: var(--accent-hover);
+  transform: translateY(-2px);
+}
+
+/* =========================
+   Advantages
+========================= */
+.advantages {
+  padding: 1.5rem 0 0.75rem;
+}
+
+.advantages__grid {
+  list-style: none;
+  margin: 1.25rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: 0.9rem;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.advantage-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1rem;
+  box-shadow: var(--shadow);
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+/* =========================
+   Catalog
+========================= */
+.catalog {
+  padding: clamp(2rem, 6vw, 4rem) 0;
+}
+
+.section-head {
+  margin-bottom: 1.25rem;
+}
+
+.section-subtitle {
+  margin: 0.55rem 0 0;
+  color: var(--text-secondary);
+}
+
+.catalog__grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.product-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 28px rgba(26, 35, 58, 0.11);
+}
+
+.product-image-placeholder {
+  aspect-ratio: 4 / 3;
+  background: linear-gradient(135deg, #eef2f8, #f9fbff);
+  border-bottom: 1px solid var(--border);
+  display: grid;
+  place-items: center;
+  color: #8a93a5;
+  font-size: 0.9rem;
+}
+
+.product-card__body {
+  padding: 1rem;
+}
+
+.product-card h3 {
+  margin: 0;
+  font-size: 1.03rem;
+}
+
+.product-card p {
+  margin: 0.6rem 0;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+.product-card__price {
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+/* =========================
+   Footer
+========================= */
+.footer {
+  border-top: 1px solid var(--border);
+  padding: 1.1rem 0 1.4rem;
+  background: #fff;
+}
+
+.footer__content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.8rem;
+  color: var(--text-secondary);
+  font-size: 0.94rem;
+}
+
+.footer__content a {
+  transition: color 0.2s ease;
+}
+
+.footer__content a:hover {
+  color: var(--text-primary);
+}
+
+/* =========================
+   Responsive
+========================= */
+@media (max-width: 960px) {
+  .advantages__grid,
+  .catalog__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 620px) {
+  .hero {
+    padding-top: 3.2rem;
+  }
+
+  .advantages__grid,
+  .catalog__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer__content {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
