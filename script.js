@@ -1,7 +1,4 @@
 const TELEGRAM_URL = "https://t.me/T_O_N_I_CH";
-const WHATSAPP_URL = "#";
-const AVITO_URL = "#";
-
 const products = [
   {
     name: "Модульный когтеточный комплекс Kotovoy",
@@ -16,7 +13,6 @@ const products = [
       "модульная конструкция",
       "подходит для квартиры",
     ],
-    photoSlots: ["Главное фото", "Фото деталей", "Фото в интерьере"],
   },
 ];
 
@@ -54,8 +50,6 @@ products.forEach((product) => {
 
 const contactLinkMap = {
   telegram: TELEGRAM_URL,
-  whatsapp: WHATSAPP_URL,
-  avito: AVITO_URL,
 };
 
 document.querySelectorAll("[data-contact-link]").forEach((link) => {
