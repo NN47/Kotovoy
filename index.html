@@ -12,17 +12,29 @@
   </head>
   <body>
     <header class="hero" id="top">
-      <div class="container hero__content">
-        <p class="hero__eyebrow">Kotovoy</p>
-        <p class="hero__tagline">мебель для кошек, которая вписывается в интерьер</p>
-        <h1>Модульные когтеточные комплексы для кошек</h1>
-        <p class="hero__subtitle">
-          Устойчивые изделия ручной сборки для игры, отдыха и заботы о когтях. Производство в
-          Санкт-Петербурге.
-        </p>
-        <div class="hero__actions">
-          <a class="button button--primary" href="#catalog" data-scroll-target="catalog">Смотреть каталог</a>
-          <a class="button button--secondary" href="#" aria-label="Заказать в Telegram">Заказать в Telegram</a>
+      <div class="container">
+        <div class="site-header" role="navigation" aria-label="Основная навигация">
+          <p class="site-header__brand">Kotovoy</p>
+          <nav class="site-nav">
+            <a href="#catalog">Каталог</a>
+            <a href="#how-to-order">Как заказать</a>
+            <a href="#delivery">Доставка</a>
+            <a href="#contacts">Контакты</a>
+          </nav>
+        </div>
+
+        <div class="hero__content">
+          <p class="hero__eyebrow">Kotovoy</p>
+          <p class="hero__tagline">мебель для кошек, которая вписывается в интерьер</p>
+          <h1>Модульные когтеточные комплексы для кошек</h1>
+          <p class="hero__subtitle">
+            Устойчивые изделия ручной сборки для игры, отдыха и заботы о когтях. Производство в
+            Санкт-Петербурге.
+          </p>
+          <div class="hero__actions">
+            <a class="button button--primary" href="#catalog" data-scroll-target="catalog">Смотреть каталог</a>
+            <a class="button button--secondary" href="#" data-contact-link="telegram" aria-label="Заказать в Telegram">Заказать в Telegram</a>
+          </div>
         </div>
       </div>
     </header>
@@ -54,13 +66,25 @@
         </div>
       </section>
 
+      <section class="trust" aria-label="Почему можно заказать спокойно">
+        <div class="container">
+          <h2 class="section-title">Почему можно заказать спокойно</h2>
+          <div class="trust__grid">
+            <article class="feature-card">Фото изделия перед отправкой</article>
+            <article class="feature-card">Обсуждаем размеры до сборки</article>
+            <article class="feature-card">Работаем из Санкт-Петербурга</article>
+            <article class="feature-card">Можно согласовать детали в Telegram</article>
+          </div>
+        </div>
+      </section>
+
       <section class="catalog" id="catalog" aria-label="Каталог товаров">
         <div class="container">
           <div class="section-head">
             <h2 class="section-title">Каталог</h2>
             <p class="section-subtitle">
-              Один основной комплекс уже доступен к заказу. Остальные модели скоро появятся в
-              каталоге.
+              Готовим удобный каталог с новыми моделями и ценами. Сейчас уже можно заказать базовый
+              модульный комплекс.
             </p>
           </div>
           <div class="catalog__grid" id="products-container"></div>
@@ -68,14 +92,14 @@
           <article class="coming-soon">
             <h3>Скоро в каталоге</h3>
             <p>
-              Новые модули, настенные лежанки и интерьерные решения для кошек — добавим ближайшими
-              обновлениями.
+              Дополнительные модули, настенные лежанки и интерьерные решения для кошек появятся в
+              следующих обновлениях.
             </p>
           </article>
         </div>
       </section>
 
-      <section class="steps" aria-label="Как заказать">
+      <section class="steps" id="how-to-order" aria-label="Как заказать">
         <div class="container">
           <h2 class="section-title">Как заказать</h2>
           <ol class="steps__list">
@@ -87,7 +111,7 @@
         </div>
       </section>
 
-      <section class="delivery" aria-label="Доставка и оплата">
+      <section class="delivery" id="delivery" aria-label="Доставка и оплата">
         <div class="container">
           <h2 class="section-title">Доставка и оплата</h2>
           <ul class="delivery__list">
@@ -99,13 +123,13 @@
       </section>
     </main>
 
-    <footer class="footer">
+    <footer class="footer" id="contacts">
       <div class="container footer__content">
         <p class="footer__brand">Kotovoy</p>
         <span>Санкт-Петербург</span>
-        <a href="#" aria-label="Telegram">Telegram</a>
-        <a href="#" aria-label="WhatsApp">WhatsApp</a>
-        <a href="#" aria-label="Авито">Авито</a>
+        <a href="#" data-contact-link="telegram" aria-label="Telegram">Telegram</a>
+        <a href="#" data-contact-link="whatsapp" aria-label="WhatsApp">WhatsApp</a>
+        <a href="#" data-contact-link="avito" aria-label="Авито">Авито</a>
       </div>
     </footer>
 
