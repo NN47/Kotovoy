@@ -1,4 +1,4 @@
-const TELEGRAM_URL = "https://t.me/nik_nickname7";
+const TELEGRAM_URL = "https://t.me/T_O_N_I_CH";
 const WHATSAPP_URL = "#";
 const AVITO_URL = "#";
 
