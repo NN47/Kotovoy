@@ -27,7 +27,11 @@ const createProductCard = (product) => {
 
   const features = product.features.map((feature) => `<li>${feature}</li>`).join("");
   const gallery = product.photoSlots
-    .map((slot) => `<div class="product-image-placeholder">${slot}</div>`)
+    .map((slot, index) =>
+      index === 0
+        ? `<img src="product.PNG" alt="${product.name}" class="product-image" />`
+        : `<div class="product-image-placeholder">${slot}</div>`
+    )
     .join("");
 
   article.innerHTML = `
