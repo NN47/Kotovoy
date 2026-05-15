@@ -1,4 +1,4 @@
-const TELEGRAM_URL = "#";
+const TELEGRAM_URL = "https://t.me/nik_nickname7";
 const WHATSAPP_URL = "#";
 const AVITO_URL = "#";
 
@@ -65,6 +65,11 @@ const contactLinkMap = {
 document.querySelectorAll("[data-contact-link]").forEach((link) => {
   const contactType = link.dataset.contactLink;
   link.setAttribute("href", contactLinkMap[contactType] || "#");
+
+  if (contactType === "telegram") {
+    link.setAttribute("target", "_blank");
+    link.setAttribute("rel", "noopener noreferrer");
+  }
 });
 
 const scrollButton = document.querySelector('[data-scroll-target="catalog"]');
