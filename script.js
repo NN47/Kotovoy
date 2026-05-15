@@ -18,24 +18,6 @@ const products = [
       "подходит для квартиры",
     ],
   },
-  {
-    name: "Угловой модульный комплекс Kotovoy",
-    image: "picture/pic2.png",
-    description:
-      "Комплекс для размещения в углу комнаты. Подходит для квартир, где важно сохранить пространство и вписать конструкцию в интерьер.",
-    priceLabel: "от 14 900 ₽",
-    premiumLabel: "Угловое интерьерное решение",
-    features: [
-      "ручная сборка",
-      "угловое размещение",
-      "распорная система потолок–пол",
-      "джутовая обмотка",
-      "домик для отдыха",
-      "мягкая лежанка",
-      "тканевый мостик",
-      "подходит для квартиры",
-    ],
-  },
 ];
 
 const productsContainer = document.getElementById("products-container");
@@ -49,7 +31,7 @@ const createProductCard = (product, index) => {
 
   article.innerHTML = `
     <div class="product-image-area" aria-label="Фотография товара">
-      <img src="${product.image}" alt="${product.name}" class="product-image ${index === 1 ? "product-image--wide" : ""}" />
+      <img src="${product.image}" alt="${product.name}" class="product-image" />
       </div>
       <div class="product-card-content">
       <h3>${product.name}</h3>
