@@ -1,21 +1,23 @@
 /* =========================
-   CSS Variables
+   Design Tokens
+   Теплый минимализм и светлая премиальная палитра.
 ========================= */
 :root {
-  --bg: #f8f9fb;
+  --bg: #fbf8f4;
   --surface: #ffffff;
-  --text-primary: #21242c;
-  --text-secondary: #626b7a;
-  --accent: #3f78ff;
-  --accent-hover: #2f64e2;
-  --border: #e8ebf1;
-  --shadow: 0 10px 30px rgba(26, 35, 58, 0.06);
-  --radius: 16px;
+  --surface-muted: #f3eee7;
+  --text-primary: #2a241f;
+  --text-secondary: #6d6359;
+  --accent: #9c6b3f;
+  --accent-hover: #865830;
+  --border: #eadfce;
+  --shadow: 0 12px 28px rgba(58, 42, 30, 0.08);
+  --radius: 18px;
   --container-width: 1120px;
 }
 
 /* =========================
-   Base Reset
+   Base Reset and Typography
 ========================= */
 * {
   box-sizing: border-box;
@@ -25,6 +27,10 @@ html,
 body {
   margin: 0;
   padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
@@ -50,11 +56,30 @@ a {
   letter-spacing: -0.02em;
 }
 
+.section-subtitle {
+  margin: 0.55rem 0 0;
+  color: var(--text-secondary);
+}
+
+/* =========================
+   Reusable Card Styles
+   Универсальные аккуратные карточки.
+========================= */
+.feature-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1rem 1.1rem;
+  box-shadow: var(--shadow);
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
 /* =========================
    Hero
 ========================= */
 .hero {
-  padding: clamp(4rem, 8vw, 7rem) 0;
+  padding: clamp(3.5rem, 8vw, 6.5rem) 0 clamp(2.2rem, 5vw, 4rem);
 }
 
 .hero__content {
@@ -62,18 +87,25 @@ a {
   flex-direction: column;
   align-items: flex-start;
   gap: 1rem;
-  max-width: 740px;
+  max-width: 780px;
 }
 
 .hero__eyebrow {
   margin: 0;
   color: var(--accent);
-  font-weight: 600;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.hero__tagline {
+  margin: -0.25rem 0 0;
+  color: var(--text-secondary);
 }
 
 .hero h1 {
   margin: 0;
-  font-size: clamp(2rem, 6vw, 3.4rem);
+  font-size: clamp(2rem, 6vw, 3.3rem);
   line-height: 1.1;
   letter-spacing: -0.03em;
 }
@@ -84,66 +116,100 @@ a {
   color: var(--text-secondary);
 }
 
-.button {
-  margin-top: 0.75rem;
-  padding: 0.8rem 1.35rem;
-  background: var(--accent);
-  color: #fff;
-  border-radius: 999px;
-  font-weight: 600;
-  transition: background 0.25s ease, transform 0.25s ease;
+.hero__actions {
+  margin-top: 0.7rem;
+  display: flex;
+  gap: 0.8rem;
+  flex-wrap: wrap;
 }
 
-.button:hover {
+.button {
+  padding: 0.8rem 1.25rem;
+  border-radius: 999px;
+  font-weight: 600;
+  transition: background 0.25s ease, transform 0.25s ease, color 0.25s ease;
+}
+
+.button--primary {
+  background: var(--accent);
+  color: #fff;
+}
+
+.button--primary:hover {
   background: var(--accent-hover);
+}
+
+.button--secondary {
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text-primary);
+}
+
+.button--secondary:hover,
+.button:hover {
   transform: translateY(-2px);
 }
 
 /* =========================
-   Advantages
+   Content Sections
 ========================= */
-.advantages {
-  padding: 1.5rem 0 0.75rem;
+.audience,
+.advantages,
+.catalog,
+.steps,
+.delivery {
+  padding: clamp(1.2rem, 4vw, 2.4rem) 0;
+}
+
+.audience__grid,
+.advantages__grid,
+.steps__list {
+  margin: 1.25rem 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.9rem;
+}
+
+.audience__grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 .advantages__grid {
-  list-style: none;
-  margin: 1.25rem 0 0;
-  padding: 0;
-  display: grid;
-  gap: 0.9rem;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(5, minmax(0, 1fr));
 }
 
-.advantage-card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 1rem;
-  box-shadow: var(--shadow);
-  color: var(--text-secondary);
-  font-weight: 500;
+.steps__list {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  counter-reset: step;
+}
+
+.steps__list .feature-card {
+  position: relative;
+  padding-top: 2.2rem;
+}
+
+.steps__list .feature-card::before {
+  counter-increment: step;
+  content: counter(step);
+  position: absolute;
+  top: 0.8rem;
+  left: 1rem;
+  color: var(--accent);
+  font-weight: 700;
 }
 
 /* =========================
    Catalog
+   Подготовлено место под реальные фото.
 ========================= */
-.catalog {
-  padding: clamp(2rem, 6vw, 4rem) 0;
-}
-
 .section-head {
   margin-bottom: 1.25rem;
 }
 
-.section-subtitle {
-  margin: 0.55rem 0 0;
-  color: var(--text-secondary);
-}
-
 .catalog__grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: minmax(0, 1fr);
   gap: 1rem;
 }
 
@@ -153,42 +219,71 @@ a {
   border-radius: var(--radius);
   overflow: hidden;
   box-shadow: var(--shadow);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-
-.product-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 14px 28px rgba(26, 35, 58, 0.11);
+  display: grid;
+  grid-template-columns: minmax(220px, 320px) minmax(0, 1fr);
 }
 
 .product-image-placeholder {
-  aspect-ratio: 4 / 3;
-  background: linear-gradient(135deg, #eef2f8, #f9fbff);
-  border-bottom: 1px solid var(--border);
+  background: linear-gradient(135deg, #f2ebe2, #faf6f0);
+  border-right: 1px solid var(--border);
+  min-height: 220px;
   display: grid;
   place-items: center;
-  color: #8a93a5;
-  font-size: 0.9rem;
+  color: #8d7b6b;
+  font-size: 0.92rem;
+  text-align: center;
+  padding: 1rem;
 }
 
 .product-card__body {
-  padding: 1rem;
+  padding: 1.1rem;
 }
 
 .product-card h3 {
   margin: 0;
-  font-size: 1.03rem;
+  font-size: 1.2rem;
 }
 
 .product-card p {
-  margin: 0.6rem 0;
+  margin: 0.65rem 0;
   color: var(--text-secondary);
-  font-size: 0.95rem;
+}
+
+.product-features {
+  margin: 0.7rem 0;
+  padding-left: 1rem;
+  color: var(--text-secondary);
 }
 
 .product-card__price {
+  display: inline-block;
+  margin-bottom: 0.75rem;
   font-weight: 700;
   letter-spacing: -0.01em;
+}
+
+.coming-soon {
+  margin-top: 1rem;
+  background: var(--surface-muted);
+  border: 1px dashed var(--border);
+  border-radius: var(--radius);
+  padding: 1rem 1.1rem;
+}
+
+.coming-soon h3,
+.coming-soon p {
+  margin: 0;
+}
+
+.coming-soon p {
+  margin-top: 0.45rem;
+  color: var(--text-secondary);
+}
+
+.delivery__list {
+  margin: 1rem 0 0;
+  padding-left: 1.1rem;
+  color: var(--text-secondary);
 }
 
 /* =========================
@@ -197,20 +292,22 @@ a {
 .footer {
   border-top: 1px solid var(--border);
   padding: 1.1rem 0 1.4rem;
-  background: #fff;
+  background: var(--surface);
+  margin-top: 1.2rem;
 }
 
 .footer__content {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 0.8rem;
+  flex-wrap: wrap;
+  gap: 0.8rem 1.3rem;
   color: var(--text-secondary);
   font-size: 0.94rem;
 }
 
-.footer__content a {
-  transition: color 0.2s ease;
+.footer__brand {
+  margin: 0;
+  color: var(--text-primary);
+  font-weight: 700;
 }
 
 .footer__content a:hover {
@@ -220,10 +317,29 @@ a {
 /* =========================
    Responsive
 ========================= */
-@media (max-width: 960px) {
-  .advantages__grid,
-  .catalog__grid {
+@media (max-width: 1024px) {
+  .advantages__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .steps__list {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 800px) {
+  .audience__grid,
+  .advantages__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .product-card {
+    grid-template-columns: 1fr;
+  }
+
+  .product-image-placeholder {
+    border-right: none;
+    border-bottom: 1px solid var(--border);
   }
 }
 
@@ -232,13 +348,9 @@ a {
     padding-top: 3.2rem;
   }
 
+  .audience__grid,
   .advantages__grid,
-  .catalog__grid {
+  .steps__list {
     grid-template-columns: 1fr;
-  }
-
-  .footer__content {
-    flex-direction: column;
-    align-items: flex-start;
   }
 }
