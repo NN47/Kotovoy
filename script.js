@@ -2,6 +2,7 @@ const TELEGRAM_URL = "https://t.me/T_O_N_I_CH";
 const products = [
   {
     name: "Модульный когтеточный комплекс Kotovoy",
+    image: "picture/pic1.png",
     description:
       "Комплекс для игры, отдыха и стачивания когтей. Конструкция собирается вручную и может адаптироваться под пространство квартиры.",
     priceLabel: "от 12 900 ₽",
@@ -13,6 +14,24 @@ const products = [
       "джутовая обмотка",
       "мягкая лежанка",
       "домик для отдыха",
+      "тканевый мостик",
+      "подходит для квартиры",
+    ],
+  },
+  {
+    name: "Угловой модульный комплекс Kotovoy",
+    image: "picture/pic2.png",
+    description:
+      "Комплекс для размещения в углу комнаты. Подходит для квартир, где важно сохранить пространство и вписать конструкцию в интерьер.",
+    priceLabel: "от 14 900 ₽",
+    premiumLabel: "Угловое интерьерное решение",
+    features: [
+      "ручная сборка",
+      "угловое размещение",
+      "распорная система потолок–пол",
+      "джутовая обмотка",
+      "домик для отдыха",
+      "мягкая лежанка",
       "тканевый мостик",
       "подходит для квартиры",
     ],
@@ -31,7 +50,7 @@ const createProductCard = (product) => {
   article.innerHTML = `
     <div class="product-card__layout">
       <div class="product-card__gallery" aria-label="Фотография товара">
-        <img src="picture/pic1.png" alt="${product.name}" class="product-image" />
+        <img src="${product.image}" alt="${product.name}" class="product-image" />
       </div>
       <div class="product-card__body">
       <h3>${product.name}</h3>
