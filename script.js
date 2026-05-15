@@ -49,7 +49,7 @@ const createProductCard = (product) => {
 
   article.innerHTML = `
     <div class="product-card__layout">
-      <div class="product-card__gallery" aria-label="Фотография товара">
+      <div class="product-card__gallery product-image-wrapper" aria-label="Фотография товара">
         <img src="${product.image}" alt="${product.name}" class="product-image" />
       </div>
       <div class="product-card__body">
