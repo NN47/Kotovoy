@@ -1,45 +1,40 @@
 const products = [
   {
-    name: "Когтеточка-столбик Loft",
-    description: "Компактная устойчивая когтеточка с джутовой обмоткой и мягким основанием.",
-    price: 5900,
-  },
-  {
-    name: "Домик-комплекс Nordic",
-    description: "Двухуровневый комплекс для отдыха и игр, сочетается с современным интерьером.",
-    price: 14900,
-  },
-  {
-    name: "Лежанка-полка Wall Rest",
-    description: "Настенная полка-лежанка из березовой фанеры для экономии пространства.",
-    price: 7600,
-  },
-  {
-    name: "Тумба-когтеточка Mono",
-    description: "Минималистичная тумба со скрытым местом для когтей и хранения игрушек.",
-    price: 12900,
+    name: "Модульный когтеточный комплекс Kotovoy",
+    description:
+      "Комплекс для игры, отдыха и стачивания когтей. Конструкция собирается вручную и может адаптироваться под пространство квартиры.",
+    priceLabel: "от 12 900 ₽",
+    features: [
+      "ручная сборка",
+      "устойчивое основание",
+      "джутовая обмотка",
+      "модульная конструкция",
+      "подходит для квартиры",
+    ],
   },
 ];
 
 const productsContainer = document.getElementById("products-container");
 
-const formatPrice = (value) =>
-  new Intl.NumberFormat("ru-RU", {
-    style: "currency",
-    currency: "RUB",
-    maximumFractionDigits: 0,
-  }).format(value);
-
 const createProductCard = (product) => {
   const article = document.createElement("article");
   article.className = "product-card";
 
+  const features = product.features.map((feature) => `<li>${feature}</li>`).join("");
+
   article.innerHTML = `
-    <div class="product-image-placeholder" aria-hidden="true">Изображение товара</div>
+    <div class="product-image-placeholder" aria-hidden="true">
+      Место для реального фото товара<br />
+      (добавьте изображение в следующих версиях)
+    </div>
     <div class="product-card__body">
       <h3>${product.name}</h3>
       <p>${product.description}</p>
-      <span class="product-card__price">${formatPrice(product.price)}</span>
+      <ul class="product-features">${features}</ul>
+      <span class="product-card__price">${product.priceLabel}</span>
+      <div>
+        <a class="button button--primary" href="#" aria-label="Заказать в Telegram">Заказать в Telegram</a>
+      </div>
     </div>
   `;
 
@@ -49,3 +44,16 @@ const createProductCard = (product) => {
 products.forEach((product) => {
   productsContainer.append(createProductCard(product));
 });
+
+const scrollButton = document.querySelector('[data-scroll-target="catalog"]');
+
+if (scrollButton) {
+  scrollButton.addEventListener("click", (event) => {
+    event.preventDefault();
+    const target = document.getElementById(scrollButton.dataset.scrollTarget);
+
+    if (target) {
+      target.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  });
+}
