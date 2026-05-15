@@ -29,17 +29,19 @@ const createProductCard = (product) => {
   const features = product.features.map((feature) => `<li>${feature}</li>`).join("");
 
   article.innerHTML = `
-    <div class="product-card__gallery" aria-label="Фотография товара">
-      <img src="picture/pic1.png" alt="${product.name}" class="product-image" />
-    </div>
-    <div class="product-card__body">
+    <div class="product-card__layout">
+      <div class="product-card__gallery" aria-label="Фотография товара">
+        <img src="picture/pic1.png" alt="${product.name}" class="product-image" />
+      </div>
+      <div class="product-card__body">
       <h3>${product.name}</h3>
       <p>${product.description}</p>
       <span class="product-card__label">${product.premiumLabel}</span>
       <ul class="product-features">${features}</ul>
-      <span class="product-card__price">${product.priceLabel}</span>
-      <div>
+      <div class="product-card__buy">
+        <span class="product-card__price">${product.priceLabel}</span>
         <a class="button button--primary" href="${TELEGRAM_URL}" data-contact-link="telegram" aria-label="Заказать в Telegram">Заказать в Telegram</a>
+      </div>
       </div>
     </div>
   `;
