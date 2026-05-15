@@ -16,65 +16,70 @@
         <div class="site-header" role="navigation" aria-label="Основная навигация">
           <p class="site-header__brand">Kotovoy</p>
           <nav class="site-nav">
+            <a href="#materials">Материалы</a>
+            <a href="#mvp-structure">Конструкция MVP</a>
             <a href="#catalog">Каталог</a>
-            <a href="#how-to-order">Как заказать</a>
-            <a href="#delivery">Доставка</a>
             <a href="#contacts">Контакты</a>
           </nav>
         </div>
 
-        <div class="hero__content" data-animate="fade-up">
-          <p class="hero__eyebrow">Kotovoy</p>
-          <p class="hero__tagline">мебель для кошек, которая вписывается в интерьер</p>
-          <h1>Модульные когтеточные комплексы для кошек</h1>
-          <p class="hero__subtitle">
-            Устойчивые изделия ручной сборки для игры, отдыха и заботы о когтях. Производство в
-            Санкт-Петербурге.
-          </p>
-          <div class="hero__actions">
-            <a class="button button--primary" href="#catalog" data-scroll-target="catalog">Смотреть каталог</a>
-            <a class="button button--secondary" href="#" data-contact-link="telegram" aria-label="Заказать в Telegram">Заказать в Telegram</a>
+        <div class="hero__layout" data-animate="fade-up">
+          <div class="hero__content">
+            <p class="hero__eyebrow">Kotovoy</p>
+            <p class="hero__tagline">мебель для кошек, которая вписывается в интерьер</p>
+            <h1>Модульные когтеточные комплексы для кошек</h1>
+            <p class="hero__subtitle">
+              Устойчивые изделия ручной сборки для игры, отдыха и заботы о когтях. Производство в
+              Санкт-Петербурге.
+            </p>
+            <div class="hero__actions">
+              <a class="button button--primary" href="#catalog" data-scroll-target="catalog">Смотреть каталог</a>
+              <a
+                class="button button--secondary"
+                href="#"
+                data-contact-link="telegram"
+                aria-label="Заказать в Telegram"
+                >Заказать в Telegram</a
+              >
+            </div>
+          </div>
+          <div class="hero__image-wrap">
+            <img
+              class="hero__image"
+              src="picture/pic1.png"
+              alt="Модульный когтеточный комплекс Kotovoy в интерьере"
+            />
           </div>
         </div>
       </div>
     </header>
 
     <main>
-      <section class="audience" aria-label="Кому подойдет" data-animate="fade-up">
+      <section class="materials" id="materials" aria-label="Материалы и детали" data-animate="fade-up">
         <div class="container">
-          <h2 class="section-title">Кому подойдет</h2>
-          <div class="audience__grid">
-            <article class="feature-card" data-animate="fade-up">Для активных кошек</article>
-            <article class="feature-card" data-animate="fade-up">Для квартир, где важен интерьер</article>
-            <article class="feature-card" data-animate="fade-up">
-              Для владельцев, которые хотят устойчивую и долговечную конструкцию
-            </article>
+          <h2 class="section-title">Материалы и детали</h2>
+          <div class="materials__grid">
+            <article class="feature-card">дерево / фанера — основа, полки и домик</article>
+            <article class="feature-card">джутовая обмотка — для стачивания когтей</article>
+            <article class="feature-card">мягкая лежанка — зона отдыха</article>
+            <article class="feature-card">тканевый мостик — дополнительная зона активности</article>
+            <article class="feature-card">распорная система — фиксация между полом и потолком</article>
           </div>
         </div>
       </section>
 
-      <section class="advantages" aria-label="Преимущества" data-animate="fade-up">
+      <section class="mvp" id="mvp-structure" aria-label="Конструкция MVP" data-animate="fade-up">
         <div class="container">
-          <h2 class="section-title">Преимущества Kotovoy</h2>
-          <ul class="advantages__grid">
-            <li class="feature-card" data-animate="fade-up">Устойчивая конструкция</li>
-            <li class="feature-card" data-animate="fade-up">Ручная сборка</li>
-            <li class="feature-card" data-animate="fade-up">Материалы, приятные для дома</li>
-            <li class="feature-card" data-animate="fade-up">Фото перед отправкой</li>
-            <li class="feature-card" data-animate="fade-up">Доставка по Санкт-Петербургу и России</li>
-          </ul>
-        </div>
-      </section>
-
-      <section class="trust" aria-label="Почему можно заказать спокойно" data-animate="fade-up">
-        <div class="container">
-          <h2 class="section-title">Почему можно заказать спокойно</h2>
-          <div class="trust__grid">
-            <article class="feature-card" data-animate="fade-up">Фото изделия перед отправкой</article>
-            <article class="feature-card" data-animate="fade-up">Обсуждаем размеры до сборки</article>
-            <article class="feature-card" data-animate="fade-up">Работаем из Санкт-Петербурга</article>
-            <article class="feature-card" data-animate="fade-up">Можно согласовать детали в Telegram</article>
-          </div>
+          <h2 class="section-title">Конструкция MVP</h2>
+          <p class="section-subtitle">
+            Базовая модель включает распорную систему крепления, когтеточные столбы, лежанку, полки,
+            домик и тканевый мостик. Конструкция рассчитана на адаптацию под высоту помещения и
+            привычки кошки.
+          </p>
+          <figure class="mvp__figure">
+            <img src="picture/MVP.png" alt="Схема базового модульного комплекса Kotovoy" class="mvp__image" />
+            <figcaption>Схема базового модульного комплекса Kotovoy</figcaption>
+          </figure>
         </div>
       </section>
 
@@ -82,64 +87,17 @@
         <div class="container">
           <div class="section-head">
             <h2 class="section-title">Каталог</h2>
-            <p class="section-subtitle">
-              Готовим удобный каталог с новыми моделями и ценами. Сейчас уже можно заказать базовый
-              модульный комплекс.
-            </p>
           </div>
           <div class="catalog__grid" id="products-container"></div>
-
-          <article class="coming-soon" data-animate="fade-up">
-            <h3>Скоро в каталоге</h3>
-            <p>
-              Дополнительные модули, настенные лежанки и интерьерные решения для кошек появятся в
-              следующих обновлениях.
-            </p>
-          </article>
-        </div>
-      </section>
-
-      <section class="steps" id="how-to-order" aria-label="Как заказать" data-animate="fade-up">
-        <div class="container">
-          <h2 class="section-title">Как заказать</h2>
-          <ol class="steps__list">
-            <li class="feature-card" data-animate="fade-up">Вы выбираете формат комплекса</li>
-            <li class="feature-card" data-animate="fade-up">Мы уточняем размеры и пожелания</li>
-            <li class="feature-card" data-animate="fade-up">Собираем изделие и отправляем фото</li>
-            <li class="feature-card" data-animate="fade-up">Передаем в доставку или выдаем в Санкт-Петербурге</li>
-          </ol>
-        </div>
-      </section>
-
-      <section class="delivery" id="delivery" aria-label="Доставка и оплата" data-animate="fade-up">
-        <div class="container">
-          <h2 class="section-title">Доставка и оплата</h2>
-          <ul class="delivery__list">
-            <li>Санкт-Петербург: самовывоз или доставка по договоренности</li>
-            <li>Россия: отправка СДЭК</li>
-            <li>Оплата обсуждается индивидуально при заказе</li>
-          </ul>
-        </div>
-      </section>
-
-      <section class="cta" aria-label="Призыв к действию" data-animate="fade-up">
-        <div class="container cta__content">
-          <h2>Готовы обсудить комплекс для вашей кошки?</h2>
-          <p>Напишите в Telegram — поможем подобрать размеры, конфигурацию и доставку.</p>
-          <a class="button button--primary" href="#" data-contact-link="telegram" aria-label="Написать в Telegram">Написать в Telegram</a>
         </div>
       </section>
     </main>
 
     <footer class="footer" id="contacts">
       <div class="container footer__content">
-        <div>
-          <p class="footer__brand">Kotovoy</p>
-          <span>Санкт-Петербург</span>
-        </div>
-        <nav class="footer__links" aria-label="Контакты">
-          <a class="footer__telegram" href="#" data-contact-link="telegram" aria-label="Telegram">Telegram</a>
-        </nav>
+        <p class="footer__brand">Kotovoy</p>
+        <span>Санкт-Петербург</span>
+        <a class="footer__telegram" href="#" data-contact-link="telegram" aria-label="Telegram">Telegram</a>
       </div>
     </footer>
 
