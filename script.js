@@ -40,7 +40,7 @@ const products = [
 
 const productsContainer = document.getElementById("products-container");
 
-const createProductCard = (product) => {
+const createProductCard = (product, index) => {
   const article = document.createElement("article");
   article.className = "product-card";
   article.setAttribute("data-animate", "fade-up");
@@ -48,28 +48,28 @@ const createProductCard = (product) => {
   const features = product.features.map((feature) => `<li>${feature}</li>`).join("");
 
   article.innerHTML = `
-    <div class="product-card__layout">
-      <div class="product-card__gallery product-image-wrapper" aria-label="Фотография товара">
-        <img src="${product.image}" alt="${product.name}" class="product-image" />
+    <div class="product-image-area" aria-label="Фотография товара">
+      <img src="${product.image}" alt="${product.name}" class="product-image ${index === 1 ? "product-image--wide" : ""}" />
       </div>
-      <div class="product-card__body">
+      <div class="product-card-content">
       <h3>${product.name}</h3>
       <p>${product.description}</p>
       <span class="product-card__label">${product.premiumLabel}</span>
       <ul class="product-features">${features}</ul>
+      <div class="product-card-actions">
       <div class="product-card__buy">
         <span class="product-card__price">${product.priceLabel}</span>
         <a class="button button--primary" href="${TELEGRAM_URL}" data-contact-link="telegram" aria-label="Заказать в Telegram">Заказать в Telegram</a>
       </div>
       </div>
-    </div>
+      </div>
   `;
 
   return article;
 };
 
-products.forEach((product) => {
-  productsContainer?.append(createProductCard(product));
+products.forEach((product, index) => {
+  productsContainer?.append(createProductCard(product, index));
 });
 
 document.querySelectorAll("[data-contact-link='telegram']").forEach((link) => {
