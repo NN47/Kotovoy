@@ -93,7 +93,7 @@ a { color: inherit; text-decoration: none; }
   object-position: center;
 }
 
-.materials,.mvp,.catalog,.brand-note { padding: clamp(1.2rem, 4vw, 2.4rem) 0; }
+.materials,.mvp,.catalog,.brand-note,.complex-structure { padding: clamp(1.2rem, 4vw, 2.4rem) 0; }
 
 .brand-note__card {
   background: #f4ede3;
@@ -114,6 +114,11 @@ a { color: inherit; text-decoration: none; }
   text-align: center;
   font-size: 0.92rem;
 }
+
+
+.complex-structure__figure { margin: 0; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: clamp(0.7rem, 2vw, 1rem); box-shadow: 0 14px 30px rgba(58, 42, 30, 0.12); }
+.complex-structure__figure img { width: 100%; height: auto; display: block; border-radius: 12px; }
+.complex-structure__figure figcaption { margin-top: 0.6rem; color: var(--text-secondary); font-size: 0.95rem; }
 
 .materials__grid { margin-top: 1.2rem; display: grid; gap: 0.9rem; grid-template-columns: repeat(2, minmax(0, 1fr)); }
 .feature-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1rem 1.1rem; box-shadow: 0 14px 30px rgba(58, 42, 30, 0.12); }
@@ -176,7 +181,12 @@ a { color: inherit; text-decoration: none; }
   .hero__actions, .hero__actions .button { width: 100%; }
   .hero__image-wrap { min-height: auto; height: auto; }
   .hero__image { width: 100%; height: auto; max-height: none; object-fit: contain; }
-  .materials__grid { grid-template-columns: 1fr; }
+  
+.complex-structure__figure { margin: 0; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: clamp(0.7rem, 2vw, 1rem); box-shadow: 0 14px 30px rgba(58, 42, 30, 0.12); }
+.complex-structure__figure img { width: 100%; height: auto; display: block; border-radius: 12px; }
+.complex-structure__figure figcaption { margin-top: 0.6rem; color: var(--text-secondary); font-size: 0.95rem; }
+
+.materials__grid { grid-template-columns: 1fr; }
 
   .brand-note__benefits { grid-template-columns: 1fr; gap: 0.85rem; }
   .brand-note__benefit {
