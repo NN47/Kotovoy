@@ -1,3 +1,18 @@
+if ('scrollRestoration' in history) {
+  history.scrollRestoration = 'manual';
+}
+
+const forceScrollTop = () => {
+  window.scrollTo(0, 0);
+};
+
+window.addEventListener('load', forceScrollTop);
+window.addEventListener('pageshow', forceScrollTop);
+
+if (window.location.hash) {
+  history.replaceState(null, '', window.location.pathname + window.location.search);
+}
+
 const TELEGRAM_URL = "https://t.me/T_O_N_I_CH";
 const products = [
   {
