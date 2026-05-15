@@ -8,9 +8,12 @@ const products = [
     premiumLabel: "Ручная сборка в Санкт-Петербурге",
     features: [
       "ручная сборка",
+      "распорная система потолок–пол",
       "устойчивое основание",
       "джутовая обмотка",
-      "модульная конструкция",
+      "мягкая лежанка",
+      "домик для отдыха",
+      "тканевый мостик",
       "подходит для квартиры",
     ],
   },
@@ -26,14 +29,14 @@ const createProductCard = (product) => {
   const features = product.features.map((feature) => `<li>${feature}</li>`).join("");
 
   article.innerHTML = `
-    <div class="product-card__gallery" aria-label="Фотографии товара">
-      <img src="product.PNG" alt="${product.name}" class="product-image" />
+    <div class="product-card__gallery" aria-label="Фотография товара">
+      <img src="picture/pic1.png" alt="${product.name}" class="product-image" />
     </div>
     <div class="product-card__body">
       <h3>${product.name}</h3>
       <p>${product.description}</p>
-      <ul class="product-features">${features}</ul>
       <span class="product-card__label">${product.premiumLabel}</span>
+      <ul class="product-features">${features}</ul>
       <span class="product-card__price">${product.priceLabel}</span>
       <div>
         <a class="button button--primary" href="${TELEGRAM_URL}" data-contact-link="telegram" aria-label="Заказать в Telegram">Заказать в Telegram</a>
@@ -45,38 +48,25 @@ const createProductCard = (product) => {
 };
 
 products.forEach((product) => {
-  productsContainer.append(createProductCard(product));
+  productsContainer?.append(createProductCard(product));
 });
 
-const contactLinkMap = {
-  telegram: TELEGRAM_URL,
-};
-
-document.querySelectorAll("[data-contact-link]").forEach((link) => {
-  const contactType = link.dataset.contactLink;
-  link.setAttribute("href", contactLinkMap[contactType] || "#");
-
-  if (contactType === "telegram") {
-    link.setAttribute("target", "_blank");
-    link.setAttribute("rel", "noopener noreferrer");
-  }
+document.querySelectorAll("[data-contact-link='telegram']").forEach((link) => {
+  link.setAttribute("href", TELEGRAM_URL);
+  link.setAttribute("target", "_blank");
+  link.setAttribute("rel", "noopener noreferrer");
 });
 
 const scrollButton = document.querySelector('[data-scroll-target="catalog"]');
-
 if (scrollButton) {
   scrollButton.addEventListener("click", (event) => {
     event.preventDefault();
-    const target = document.getElementById(scrollButton.dataset.scrollTarget);
-
-    if (target) {
-      target.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
+    const target = document.getElementById("catalog");
+    target?.scrollIntoView({ behavior: "smooth", block: "start" });
   });
 }
 
 const animatedElements = document.querySelectorAll('[data-animate="fade-up"]');
-
 if ("IntersectionObserver" in window) {
   const observer = new IntersectionObserver(
     (entries, currentObserver) => {
