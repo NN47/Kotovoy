@@ -1,3 +1,7 @@
+const TELEGRAM_URL = "#";
+const WHATSAPP_URL = "#";
+const AVITO_URL = "#";
+
 const products = [
   {
     name: "Модульный когтеточный комплекс Kotovoy",
@@ -11,6 +15,7 @@ const products = [
       "модульная конструкция",
       "подходит для квартиры",
     ],
+    photoSlots: ["Главное фото", "Фото деталей", "Фото в интерьере"],
   },
 ];
 
@@ -21,11 +26,13 @@ const createProductCard = (product) => {
   article.className = "product-card";
 
   const features = product.features.map((feature) => `<li>${feature}</li>`).join("");
+  const gallery = product.photoSlots
+    .map((slot) => `<div class="product-image-placeholder">${slot}</div>`)
+    .join("");
 
   article.innerHTML = `
-    <div class="product-image-placeholder" aria-hidden="true">
-      Место для реального фото товара<br />
-      (добавьте изображение в следующих версиях)
+    <div class="product-card__gallery" aria-label="Фотографии товара">
+      ${gallery}
     </div>
     <div class="product-card__body">
       <h3>${product.name}</h3>
@@ -33,7 +40,7 @@ const createProductCard = (product) => {
       <ul class="product-features">${features}</ul>
       <span class="product-card__price">${product.priceLabel}</span>
       <div>
-        <a class="button button--primary" href="#" aria-label="Заказать в Telegram">Заказать в Telegram</a>
+        <a class="button button--primary" href="${TELEGRAM_URL}" data-contact-link="telegram" aria-label="Заказать в Telegram">Заказать в Telegram</a>
       </div>
     </div>
   `;
@@ -43,6 +50,17 @@ const createProductCard = (product) => {
 
 products.forEach((product) => {
   productsContainer.append(createProductCard(product));
+});
+
+const contactLinkMap = {
+  telegram: TELEGRAM_URL,
+  whatsapp: WHATSAPP_URL,
+  avito: AVITO_URL,
+};
+
+document.querySelectorAll("[data-contact-link]").forEach((link) => {
+  const contactType = link.dataset.contactLink;
+  link.setAttribute("href", contactLinkMap[contactType] || "#");
 });
 
 const scrollButton = document.querySelector('[data-scroll-target="catalog"]');
